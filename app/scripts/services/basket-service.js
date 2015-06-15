@@ -41,8 +41,8 @@ angular.module('jstestApp')
             return item;
         }
 
-        function remove (item) {
-            //TODO remove item from basket
+        function remove (index) {
+            items.splice(index, 1);
         }
 
         function totalPrice(){
