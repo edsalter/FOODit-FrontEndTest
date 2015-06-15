@@ -8,14 +8,16 @@
  * Service in the jstestApp.
  */
 angular.module('jstestApp')
-    .factory('BasketService', ['$http', function ($http) {
+    .factory('BasketService', ['$filter', function ($filter) {
         var items = [];
 
         var service = {
             get: get,
             add: add,
             remove: remove,
-            getItemCount: getItemCount
+            getMains: getMains,
+            getOthers: getOthers,
+            totalPrice: totalPrice
         };
 
         return service;
@@ -24,8 +26,14 @@ angular.module('jstestApp')
             return items;
         }
 
-        function getItemCount () {
-            return items.length;
+        function getMains () {
+            var mains = $filter('filter')(items, {"course": "main"})
+            return mains;
+        }
+
+        function getOthers () {
+            var mains = $filter('filter')(items, {"course": "other"})
+            return mains;
         }
 
         function add (item) {
@@ -34,7 +42,20 @@ angular.module('jstestApp')
         }
 
         function remove (item) {
-
+            //TODO remove item from basket
         }
+
+        function totalPrice(){
+            var total = 0;
+
+            for(var i=0; i < items.length; i++){
+                var item = items[i];
+
+                total += parseFloat(item.price);
+            }
+
+            return total;
+        }
+
     }]);
 

@@ -1,27 +1,55 @@
 <div class="header">
-    <h3 class="text-muted">Ed's Restaurant</h3>
+    <div class="emptyBasket" ng-if="basket.get().length == 0">It's time to order some delicious food</div>
 
-    <p>{{basket.get().length | filter: {course: 'main'} }} in basket</p>
-    <ul>
-        <li ng-repeat="meal in basket.get() | filter: {course: 'main'}">
-            <h4 class="name">{{meal.name}}</h4>
-        </li>
-    </ul>
+    <div class="basket" ng-if="basket.get().length > 0">
+        <div class="expandedBasket">
+            <div ng-if="basket.getMains().length>0">
+                {{basket.getMains().length }} main
+                <ul>
+                    <li ng-repeat="meal in basket.getMains() track by $index">
+                        <span class="name">{{meal.name}}</span>
+                        <span>£{{meal.price}}</span>
+                    </li>
+                </ul>
+            </div>
 
-    <ul>
-        <li ng-repeat="meal in basket.get() | filter: {course: 'other'}">
-            <h4 class="name">{{meal.name}}</h4>
-        </li>
-    </ul>
+            <div ng-if="basket.getOthers().length>0">
+                {{basket.getOthers().length }} other
+                <ul>
+                    <li ng-repeat="meal in basket.getOthers() track by $index">
+                        <span class="name">{{meal.name}}</span>
+                        <span>£{{meal.price}}</span>
+                    </li>
+                </ul>
+             </div>
+        </div>
+
+
+        <div>
+            <ul>
+                <li>
+                    {{basket.getMains().length }} main
+                </li>
+
+                <li>
+                    {{basket.getOthers().length }} other
+                </li>
+
+                <li class="total">
+                    £{{basket.totalPrice()}}
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 
-<div>
-
-</div>
+<h3 class="text-muted">Ed's Restaurant</h3>
 
 <ul class="meals">
     <li class="meal" ng-repeat="meal in menu.meals">
-        <p class="price">£{{meal.price}}</p>
+        <p class="price">
+            <span>£{{meal.price}}</span>
+        </p>
 
         <div class="imageHolder">
             <img class="image" ng-src="{{meal.primaryImageUrl}}">
@@ -31,7 +59,9 @@
         <div class="details">
             <p class="description">{{meal.description | limitTo:70}}</p>
 
-            <div class="addToBasket" ng-click="basket.add(meal)">Add To Your Order</div>
+            <div class="addToBasket" >
+                <a ng-click="basket.add(meal)">Add To Your Order</a>
+            </div>
 
             <p><i>3</i> options available</p>
         </div>
