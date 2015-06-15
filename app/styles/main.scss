@@ -1,24 +1,74 @@
+@import 'reset';
 @import 'scales';
 @import 'typography';
 
+
+
+
 body{
-  background-color: #f1f1f1;
+  background-color: #fff;
+  margin: 0px;
+  padding: 0px;
 }
 
 .container{
   width:400px;
-  border:1px solid black;
+  margin: 0 auto;
+  padding: 0 30px;
+  background-color: #f7f7f7;
 
   img{
     max-width: 100%;
   }
 }
 
+.header{
+  background-color: #ca3b3d;
+  padding: 10px;
+  text-align: center;
+
+  .emptyBasket{
+    border: 1px solid #b62127;
+    padding: 10px;
+    color: #fff;
+    background-color: #d6504f;
+    display: inline-block;
+  }
+
+  .basket{
+    text-align: left;
+    ul{
+      li{
+        display: inline-block;
+        border: 1px solid #b62127;
+        background-color: #d6504f;
+        color: #b62127;
+        padding: 5px;
+      }
+
+      li.total{
+        float: right;
+      }
+
+      .expandedBasket{
+        li{
+          display: block;
+        }
+      }
+    }
+
+  }
+}
+
 .meals{
+  padding: 0px;
+  margin: 0px;
+
   .meal{
     background-color: #fff;
     list-style: none;
-    border:1px solid #a7a7a7;
+    border:1px solid #aaaaaa;
+
 
     .details{
       padding: 20px;
@@ -26,20 +76,30 @@ body{
 
     .price{
       position: absolute;
-      background-color: blue;
+      background-color: #416bf1;
       margin: 0 0;
+      z-index: 3000;
+      padding: 5px;
+      color: #fff;
     }
 
     .imageHolder{
       position: relative;
+      background-image: url("/images/assets/meal-card__curve.svg");
+      background-size: cover;
+      background-position: bottom;
 
       .name{
         position: absolute;
         bottom: 20px;
         text-align: center;
-        margin: 0 auto;
-        display: block;
         width: 100%;
+        background-image: url("/images/assets/meal-card__curve.svg");
+        background-size: cover;
+        bottom: 0px;
+        opacity:0.6;
+
+
       }
     }
 
@@ -49,7 +109,7 @@ body{
     .addToBasket{
       text-align: center;
       padding: 10px;
-      background-color: blue;
+      background-color: #456bf2;
     }
   }
 }
