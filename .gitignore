@@ -6,3 +6,11 @@ bower_components
 .idea
 *.log
 *.DS_STORE
+
+app/styles/main.css.map
+
+app/styles/main.css
+
+design/.DS_Store
+
+design/.DS_Store
