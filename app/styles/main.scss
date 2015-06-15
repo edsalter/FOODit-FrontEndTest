@@ -18,12 +18,31 @@ body{
   .meal{
     background-color: #fff;
     list-style: none;
+    border:1px solid #a7a7a7;
+
+    .details{
+      padding: 20px;
+    }
 
     .price{
       position: absolute;
       background-color: blue;
       margin: 0 0;
     }
+
+    .imageHolder{
+      position: relative;
+
+      .name{
+        position: absolute;
+        bottom: 20px;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+      }
+    }
+
 
 
 

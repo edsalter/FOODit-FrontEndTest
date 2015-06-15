@@ -22,12 +22,18 @@
 <ul class="meals">
     <li class="meal" ng-repeat="meal in menu.meals">
         <p class="price">£{{meal.price}}</p>
-        <img class="image" ng-src="{{meal.primaryImageUrl}}">
-        <h4 class="name">{{meal.name}}</h4>
-        <p class="description">{{meal.description | limitTo:70}}</p>
 
-        <div class="addToBasket" ng-click="basket.add(meal)">Add To Your Order</div>
+        <div class="imageHolder">
+            <img class="image" ng-src="{{meal.primaryImageUrl}}">
+            <h4 class="name">{{meal.name}}</h4>
+        </div>
 
-        <p>{{meal.options}} options available</p>
+        <div class="details">
+            <p class="description">{{meal.description | limitTo:70}}</p>
+
+            <div class="addToBasket" ng-click="basket.add(meal)">Add To Your Order</div>
+
+            <p><i>3</i> options available</p>
+        </div>
     </li>
 </ul>
