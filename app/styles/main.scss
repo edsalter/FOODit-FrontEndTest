@@ -1,2 +1,36 @@
 @import 'scales';
 @import 'typography';
+
+body{
+  background-color: #f1f1f1;
+}
+
+.container{
+  width:400px;
+  border:1px solid black;
+
+  img{
+    max-width: 100%;
+  }
+}
+
+.meals{
+  .meal{
+    background-color: #fff;
+    list-style: none;
+
+    .price{
+      position: absolute;
+      background-color: blue;
+      margin: 0 0;
+    }
+
+
+
+    .addToBasket{
+      text-align: center;
+      padding: 10px;
+      background-color: blue;
+    }
+  }
+}
