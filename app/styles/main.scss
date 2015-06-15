@@ -2,9 +2,6 @@
 @import 'scales';
 @import 'typography';
 
-
-
-
 body{
   background-color: #fff;
   margin: 0px;
@@ -48,6 +45,7 @@ body{
 
       li.total{
         float: right;
+        color: #fff;
       }
 
       .expandedBasket{
@@ -68,6 +66,7 @@ body{
     background-color: #fff;
     list-style: none;
     border:1px solid #aaaaaa;
+    margin-bottom: 50px;
 
 
     .details{
@@ -103,13 +102,11 @@ body{
       }
     }
 
-
-
-
     .addToBasket{
       text-align: center;
       padding: 10px;
       background-color: #456bf2;
+      margin: 10px 0;
     }
   }
 }
