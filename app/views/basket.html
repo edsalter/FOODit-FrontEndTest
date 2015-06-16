@@ -3,7 +3,7 @@
 <div class="emptyBasket" ng-if="basket.get().length == 0">It's time to order some delicious food</div>
 
 <div class="basket" ng-if="basket.get().length > 0">
-    <div class="expandedBasket">
+    <div ng-if="menuExpanded" class="expandedBasket">
         <div ng-if="basket.getMains().length>0">
             {{basket.getMains().length }} main
             <ul>
@@ -29,15 +29,17 @@
 
     <div>
         <ul>
-            <li>
+            <li class="confirmOrder" ng-if="menuExpanded">Confirm Your Order</li>
+
+            <li ng-if="!menuExpanded">
                 {{basket.getMains().length }} main
             </li>
 
-            <li>
+            <li ng-if="!menuExpanded">
                 {{basket.getOthers().length }} other
             </li>
 
-            <li class="total">
+            <li class="total" ng-click="toggleMenu()">
                 £{{basket.totalPrice() | number:2}}
             </li>
         </ul>
