@@ -37,6 +37,9 @@ angular.module('jstestApp')
         }
 
         function add (item) {
+            /*
+                TODO Should only add each item once, then add a quantity
+             */
             items.push(item);
             return item;
         }
