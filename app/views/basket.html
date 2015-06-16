@@ -1,9 +1,47 @@
-<div>It's time to order some delicious food</div>
-
 <div>
-    <div class="foodOptions">
-        <span>{{basket.items}}</span>
+
+<div class="emptyBasket" ng-if="basket.get().length == 0">It's time to order some delicious food</div>
+
+<div class="basket" ng-if="basket.get().length > 0">
+    <div class="expandedBasket">
+        <div ng-if="basket.getMains().length>0">
+            {{basket.getMains().length }} main
+            <ul>
+                <li ng-repeat="meal in basket.getMains() track by $index">
+                    <span ng-click="basket.add(meal)">+</span> <span ng-click="basket.remove($index)">-</span>
+                    <span class="name">{{meal.name}}</span>
+                    <span>£{{meal.price}}</span>
+                </li>
+            </ul>
+        </div>
+
+        <div ng-if="basket.getOthers().length>0">
+            {{basket.getOthers().length }} other
+            <ul>
+                <li ng-repeat="meal in basket.getOthers() track by $index">
+                    <span class="name">{{meal.name}}</span>
+                    <span>£{{meal.price}}</span>
+                </li>
+            </ul>
+        </div>
     </div>
 
-    <div class="total">{{basket.totalCost}}</div>
+
+    <div>
+        <ul>
+            <li>
+                {{basket.getMains().length }} main
+            </li>
+
+            <li>
+                {{basket.getOthers().length }} other
+            </li>
+
+            <li class="total">
+                £{{basket.totalPrice() | number:2}}
+            </li>
+        </ul>
+    </div>
+</div>
+
 </div>

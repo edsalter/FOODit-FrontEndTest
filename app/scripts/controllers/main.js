@@ -8,15 +8,27 @@
  * Controller of the jstestApp
  */
 angular.module('jstestApp')
-  .controller('MainCtrl', ['$scope', 'MenuService', 'BasketService', function ($scope, MenuService, BasketService) {
+  .controller('MainCtrl', ['$scope', 'MenuService', 'BasketService', function ($scope, MenuService) {
 	$scope.menu = {};
 
     MenuService.get('/data/menu.json').success(function(data) {
 	  $scope.menu = data;
 	});
 
-    $scope.basket = BasketService;
-
-
   }
-]);
+])
+
+/*
+    TODO split into a separate file
+ */
+.directive('basket', function(BasketService) {
+    return {
+        restrict: 'AE',
+        replace: 'true',
+        templateUrl: "/views/basket.html",
+        link: function ($scope) {
+            $scope.basket = BasketService;
+        }
+    };
+});
+
