@@ -16,25 +16,4 @@ angular.module('jstestApp')
 	});
 
   }
-])
-
-/*
-    TODO split into a separate file
- */
-.directive('basket', function(BasketService) {
-    return {
-        restrict: 'AE',
-        replace: 'true',
-        templateUrl: "/views/basket.html",
-        link: function ($scope) {
-            $scope.basket = BasketService;
-
-            $scope.menuExpanded = false;
-
-            $scope.toggleMenu = function (){
-                $scope.menuExpanded = !$scope.menuExpanded;
-            }
-        }
-    };
-});
-
+]);
