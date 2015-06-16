@@ -6,6 +6,10 @@ body{
   background-color: #fff;
   margin: 0px;
   padding: 0px;
+
+  h3{
+    padding-top: 70px;
+  }
 }
 
 .container{
@@ -23,6 +27,9 @@ body{
   background-color: #ca3b3d;
   padding: 10px;
   text-align: center;
+  position: fixed;
+  z-index: 3001;
+  width: 380px;
 
   .emptyBasket{
     border: 1px solid #b62127;
