@@ -41,11 +41,19 @@ body{
         background-color: #d6504f;
         color: #b62127;
         padding: 5px;
+        margin-top: 15px;
       }
 
       li.total{
         float: right;
         color: #fff;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+
+      li.confirmOrder{
+        background-color: #fff;
+        cursor: pointer;
       }
 
       .expandedBasket{
@@ -107,6 +115,7 @@ body{
       padding: 10px;
       background-color: #456bf2;
       margin: 10px 0;
+      cursor: pointer;
     }
   }
 }
